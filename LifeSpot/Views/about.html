@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>LifeSpot</title>
-    <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css">
+    <link href="../Static/CSS/index.css" rel="stylesheet">
+    <link href="../Static/CSS/slider.css" rel="stylesheet">
     <script src="../Static/JS/about.js"></script>
+    <script defer src="../Static/JS/slider.js"></script>
 </head>
-<header id="header-index">
-    <h1>LifeSpot - о проекте</h1>
-    <p>На сайте собраны прямые трансляции из улиц разных городов мира</p>
-    <p>Все трансляции находятся в открытых источниках, в данный момент - YouTube.com</p>
-    <p>Отзыв о работе сайта можно оставить здесь</p>
-</header>
 <body>
-    <div class="reviews">
-    <div class="review-button">
-        <button onclick="getReview()">Оставить отзыв</button>
-    </div>
-    </div>
+    <header id="header-index">
+        <h1>LifeSpot - о проекте</h1>
+        <p>На сайте собраны прямые трансляции из улиц разных городов мира</p>
+        <p>Все трансляции находятся в открытых источниках, в данный момент - YouTube.com</p>
+        <!--SLIDER-->
+        <p>Отзыв о работе сайта можно оставить здесь</p>
+    </header>
+    <main>
+        <div class="reviews">
+            <div class="review-button">
+                <button onclick="addComment()">Оставить отзыв</button>
+            </div>
+        </div>
+    </main>
+    <!--SIDEBAR-->
+    <!--FOOTER-->
 </body>
-<!--SIDEBAR-->
-<!--FOOTER-->
 </html>

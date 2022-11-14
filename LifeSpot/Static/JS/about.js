@@ -1,25 +1,71 @@
-﻿function getReview() {
-	let review = {}
+﻿function addComment() {
+	let comment = new Comment()
 
-	review["userName"] = prompt("Как вас зовут?")
-	if (review["userName"] == null) {
-		return;
+	if (comment.empty) {
+		return
 	}
 
-	review["comment"] = prompt("Напишите свой отзыв")
-	if (review["comment"] == null) {
-		return
-    }
+	let enableLikes = confirm('Разрешить пользователям оценивать ваш отзыв?')
 
-	review["date"] = new Date().toLocaleString()
+	if (enableLikes) {
+		let review = Object.create(comment)
 
-	writeReview(review)
+		review.rate = 0;
+
+		writeReview(review)
+	} else {
+		writeReview(comment)
+	}
 }
 
 const writeReview = review => {
-	document.getElementsByClassName('reviews')[0].innerHTML +=
-		'<div class="review-text">\n' +
-		`<p> <i> <b>${review['userName']}</b> - ${review['date']}</i></p>` +
-		`<p>${review['comment']}</p>` +
-		'</div>';
+	let likeCounter = '';
+
+	if (review.hasOwnProperty('rate')) {
+		let commentId = Math.random();
+
+		likeCounter += '<button id="' + commentId
+			+ '" style="border: none" onclick="addLike(this.id)">' + `❤️ ${review.rate}</button>`
+    }
+
+	document.getElementsByClassName('reviews')[0].innerHTML
+		+= '<div class="review-text">\n'
+		+ `<p><i><b>${review['author']}</b> - ${review['date']}${likeCounter}</i></p>`
+		+ `<p>${review['text']}</p>`
+		+ '</div>';
 }
+
+function Comment() {
+	this.author = prompt("Как вас зовут ?")
+	if (this.author == null) {
+		this.empty = true
+		return
+	}
+
+	this.text = prompt("Оставьте отзыв")
+	if (this.text == null) {
+		this.empty = true
+		return
+	}
+
+	this.date = new Date().toLocaleString()
+}
+
+function addLike(id) {
+	let element = document.getElementById(id);
+	let array = element.innerText.split(' ');
+	let resultNum = parseInt(array[array.length - 1], 10);
+
+	resultNum += 1
+
+	array[array.length - 1] = `${resultNum}`
+
+	element.innerText = array.join(' ')
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+	new SimpleAdaptiveSlider('.slider', {
+		autoplay: false,
+		interval: 10000
+	});
+});

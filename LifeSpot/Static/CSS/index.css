@@ -1,75 +1,94 @@
-.video-contrainer {
+body, header, footer {
+    background-color: linen;
+}
+
+body {
+    margin: 0;
+    margin-left: 12%
+}
+
+header {
+    color: #123;
+    font-size: large;
+    margin-left: 1%;
+}
+
+footer {
+    width: 95%;
+    color: dimgray;
+    font-size: medium;
+    line-height: 50%;
+    margin-left: 1%;
+    margin-top: 10%;
+}
+
+.video-container {
+    background-color: #fff;
     display: inline-block;
-    padding-left: 1%;
-    padding-top: 1%;
+    border: 1px solid #123;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+.video-description {
+    color: #123;
+    margin-left: 5%;
+}
+
+#sidebar {
+    background-color: #0c0c0c;
+    font-size: large;
+    overflow-x: hidden;
+    height: 100%;
+    width: 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .navbar p {
     color: darkgray;
-    padding-left: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .navbar p:hover {
-    color: aliceblue;
-}
-
-#header-index {
-    color: #44453f;
-}
-
-header {
-    color: black;
-    padding-left: 1%;
-    padding-top: 1.2%;
+    color: lightgray;
 }
 
 input:focus {
     background-color: lightgray;
 }
 
-footer {
-    font-size: medium;
-    color: dimgrey;
-    line-height: 66%;
-    padding-left: 1%;
-    padding-top: 10%;
+.review-button {
+    display: inline-block;
+    margin-left: 1%;
+    margin-top: 1%;
 }
 
-aside {
-    height: 100%;
-    width: 10%;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 2%;
-    font-size: large;
+.review-text {
+    display: block;
+    margin-left: 1%;
+    margin-top: 1%;
 }
 
-body {
-    padding-left: 11%;
-}
-
-* {
-    font-family: "Helvetica 65 Medium", sans-serif;
-}
-
-header, footer, body, .video-container {
-    background-color: linen;
-}
-
-.review-container, .review-button {
+.review-container {
     display: inline-block;
     margin-top: 0.5em;
     padding-left: 1%;
     padding-top: 1%;
 }
 
-.review-text {
-    display: block;
-    margin-top: 0.5em;
-    padding-left: 1%;
-    padding-top: 1%;
+.like-button {
+    border: none;
+    background-color: lightgray;
+    color: blue
+}
+
+.like-button:hover {
+    color: red
+}
+
+* {
+    font-family: "Helvetica 65 Medium", sans-serif;
 }
