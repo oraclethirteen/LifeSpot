@@ -8,36 +8,6 @@ namespace LifeSpot
 {
     public static class EndpointMapper
     {
-        public static void MapCss(this IEndpointRouteBuilder builder)
-        {
-            var cssFiles = new[] { "index.css" };
-
-            foreach (var fileName in cssFiles)
-            {
-                builder.MapGet($"/Static/CSS/{fileName}", async context =>
-                {
-                    var cssPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "CSS", fileName);
-                    var css = await File.ReadAllTextAsync(cssPath);
-                    await context.Response.WriteAsync(css);
-                });
-            }
-        }
-
-        public static void MapJs(this IEndpointRouteBuilder builder)
-        {
-            var jsFiles = new[] { "index.js", "testing.js", "about.js" };
-
-            foreach (var fileName in jsFiles)
-            {
-                builder.MapGet($"/Static/JS/{fileName}", async context =>
-                {
-                    var jsPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "JS", fileName);
-                    var js = await File.ReadAllTextAsync(jsPath);
-                    await context.Response.WriteAsync(js);
-                });
-            }
-        }
-
         public static void MapHtml(this IEndpointRouteBuilder builder)
         {
             string footerHtml = File.ReadAllText(
@@ -81,6 +51,36 @@ namespace LifeSpot
 
                 await context.Response.WriteAsync(html.ToString());
             });
+        }
+
+        public static void MapCss(this IEndpointRouteBuilder builder)
+        {
+            var cssFiles = new[] { "index.css" };
+
+            foreach (var fileName in cssFiles)
+            {
+                builder.MapGet($"/Static/CSS/{fileName}", async context =>
+                {
+                    var cssPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "CSS", fileName);
+                    var css = await File.ReadAllTextAsync(cssPath);
+                    await context.Response.WriteAsync(css);
+                });
+            }
+        }
+
+        public static void MapJs(this IEndpointRouteBuilder builder)
+        {
+            var jsFiles = new[] { "index.js", "testing.js", "about.js" };
+
+            foreach (var fileName in jsFiles)
+            {
+                builder.MapGet($"/Static/JS/{fileName}", async context =>
+                {
+                    var jsPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "JS", fileName);
+                    var js = await File.ReadAllTextAsync(jsPath);
+                    await context.Response.WriteAsync(js);
+                });
+            }
         }
     }
 }
